@@ -1,8 +1,8 @@
-# Js_of_reason
+## Js_of_reason
 
 This module converts a snippet of reasonML to javascript.
 
-# Example
+### Example without error
 
 ```
 const jsOfReason = require("js-of-reason")
@@ -11,31 +11,27 @@ const reasonCode = `let add = (a,b) => {
 }`
 
 jsOfReason(reasonCode, (error, jsCode) => {
-  if(error){
-    console.log(error)
-  } else {
-    console.log(jsCode)         // function add(a, b) {
-                                //   return a + b | 0;
-                                // }
-  }
-})
 
+  console.log(jsCode) // function add(a, b) {
+                      //   return a + b | 0;
+                      // }
+})
+```
+### Example with error
+
+```
 const codeWithError = `let add = (a,b) => {
   a + b + "2";
 }`
 
 jsOfReason(codeWithError, (error, jsCode) => {
-  if(error){
-    console.log(error)          // <type error>
-                                //   1 │ let add = (a,b) => {
-                                //   2 │   a + b + "2";
-                                //   3 │ }
-                                //   This has type:
-                                //     string
-                                //   But somewhere wanted:
-                                //     int
-  } else {
-    console.log(jsCode)
-  }
-})
+   console.log(error)  // <type error>
+                       //   1 │ let add = (a,b) => {
+                       //   2 │   a + b + "2";
+                       //   3 │ }
+                       //   This has type:
+                       //     string
+                       //   But somewhere wanted:
+                       //     int
+ })
 ```
