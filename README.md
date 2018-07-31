@@ -1,4 +1,4 @@
-# Basic Reason Template
+# Js_of_reason
 
 This module converts a snippet of reasonML to javascript.
 
